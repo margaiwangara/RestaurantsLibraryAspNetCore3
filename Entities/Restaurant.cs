@@ -1,9 +1,12 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspNetCoreMVCMovie.Entities
 {
   public class Restaurant
   {
+    [Key]
     public Guid Id { get; set; }
 
     public string Name { get;set; }
@@ -14,6 +17,7 @@ namespace AspNetCoreMVCMovie.Entities
     
     public DateTimeOffset DateAdded { get; set; }
 
+    [ForeignKey("MenuId")]
     public Menu Menu { get; set; }
 
     public Restaurant()

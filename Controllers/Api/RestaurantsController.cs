@@ -1,13 +1,27 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using AspNetCoreMVCMovie.Services;
+using AspNetCoreMVCMovie.Entities;
 
 namespace AspNetCoreMVCMovie.Controllers.Api
 {
   [Route("api/restaurants")]
   public class RestaurantsController: Controller
   {
-    public string index()
+
+    private readonly IRestaurantLibraryRepository _restaurantLibraryRepository;
+
+    public RestaurantsController(IRestaurantLibraryRepository restaurantLibraryRepository)
     {
-      return "This is a test for the api";
+      _restaurantLibraryRepository = restaurantLibraryRepository ?? 
+              throw new ArgumentNullException(nameof(restaurantLibraryRepository));
+    }
+
+    [HttpGet()]
+    public ActionResult<IEnumerable<Restaurant>> GetRestaurants()
+    {
+      return Ok(_restaurantLibraryRepository.GetRestaurants());
     }
   }
 }

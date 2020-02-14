@@ -8,13 +8,9 @@ namespace AspNetCoreMVCMovie.Models
 
     public string Name { get; set; }
 
-    public string PostalCode { get; set; }
+    public string Address { get; set; }
 
-    public string Street { get; set; }
-     
-    public long Longitude { get; set; }
-
-    public long Latitude { get; set; }
+    public bool OffersTakeout { get; set; }
 
   }
 }

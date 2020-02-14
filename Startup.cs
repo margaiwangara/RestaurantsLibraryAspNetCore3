@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using AspNetCoreMVCMovie.DbContexts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using AspNetCoreMVCMovie.Services;
 
 namespace AspNetCoreMVCMovie
 {
@@ -22,8 +23,10 @@ namespace AspNetCoreMVCMovie
         {
             services.AddControllersWithViews();
 
+            services.AddScoped<IRestaurantLibraryRepository, RestaurantLibraryRepository>();
+            
             services.AddDbContext<RestaurantLibraryContext>(options => 
-                options.UseSqlite(Configuration.GetConnectionString("RestaurantLibraryDB")));
+                options.UseSqlite(Configuration.GetConnectionString("RestaurantLibraryContext")));
 
         }
 
