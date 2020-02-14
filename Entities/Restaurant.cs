@@ -14,6 +14,11 @@ namespace AspNetCoreMVCMovie.Entities
     
     public DateTimeOffset DateAdded { get; set; }
 
+    public Menu Menu { get; set; }
 
+    public Restaurant()
+    {
+      DateAdded = DateTimeOffset.Now;
+    }
   }
 }
