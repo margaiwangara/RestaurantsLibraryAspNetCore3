@@ -45,6 +45,11 @@ namespace AspNetCoreMVCMovie.Services
 
     }
 
+    public bool Save()
+    {
+      return (_context.SaveChanges() >= 0);
+    }
+
     
   }
 
