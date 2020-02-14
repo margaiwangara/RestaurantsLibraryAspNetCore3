@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspNetCoreMVCMovie.Entities
 {
@@ -19,16 +18,12 @@ namespace AspNetCoreMVCMovie.Entities
 
     public bool OffersTakeout { get; set; }
     
-    public DateTimeOffset DateAdded { get; set; }
+    public DateTime DateAdded { get; set; }
 
-    [ForeignKey("MenuId")]
-    public Menu Menu { get; set; }
+    // [ForeignKey("MenuId")]
+    // public Menu Menu { get; set; }
 
-    public Guid MenuId { get; set; }
+    // public Guid MenuId { get; set; }
 
-    public Restaurant()
-    {
-      DateAdded = DateTimeOffset.Now;
-    }
   }
 }

@@ -1,10 +1,10 @@
 using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using AspNetCoreMVCMovie.Models;
 using System.Collections.Generic;
 using AspNetCoreMVCMovie.Services;
 using AspNetCoreMVCMovie.Entities;
-using AutoMapper;
-using AspNetCoreMVCMovie.Models;
 
 namespace AspNetCoreMVCMovie.Controllers.Api
 {
@@ -46,7 +46,8 @@ namespace AspNetCoreMVCMovie.Controllers.Api
     }
     
     [HttpPost]
-    public IActionResult CreateRestaurant(RestaurantDto restaurant)
+    public ActionResult<RestaurantDto> CreateRestaurant(
+          [FromBody] RestaurantForCreationDto restaurant)
     {
         var restaurantFromRepo = _mapper.Map<Restaurant>(restaurant);
        _restaurantLibraryRepository.AddRestaurant(restaurantFromRepo);

@@ -37,6 +37,9 @@ namespace AspNetCoreMVCMovie.Services
         throw new ArgumentNullException(nameof(restaurant));
       }
 
+      // initialize defalts
+      restaurant.Id = Guid.NewGuid();
+      restaurant.DateAdded = DateTime.Now;
       _context.Restaurants.Add(restaurant);
     }
 

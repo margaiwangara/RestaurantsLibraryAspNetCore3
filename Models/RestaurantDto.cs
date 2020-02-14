@@ -9,7 +9,9 @@ namespace AspNetCoreMVCMovie.Models
     public string Address { get; set; }
     public bool OffersTakeout { get; set; }
 
-    public DateTimeOffset DateCreated { get; set; }
+    public DateTime DateCreated { get; set; }
+
+    // public Guid MenuId { get; set; }
 
   }
 }
