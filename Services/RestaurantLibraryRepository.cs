@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AspNetCoreMVCMovie.Entities;
 using AspNetCoreMVCMovie.DbContexts;
+using System.Linq;
 
 namespace AspNetCoreMVCMovie.Services
 {
@@ -16,12 +17,17 @@ namespace AspNetCoreMVCMovie.Services
 
     public IEnumerable<Restaurant> GetRestaurants()
     {
-      return _context.Authors.ToList();
+      return _context.Restaurants.ToList<Restaurant>();
     }
 
     public Restaurant GetRestaurant(Guid restaurantId)
     {
+      if(restaurantId == Guid.Empty)
+      {
+        throw new ArgumentNullException(nameof(restaurantId));
+      }
 
+      return _context.Restaurants.FirstOrDefault(f => f.Id == restaurantId);
     }
 
     public void AddRestaurant(Restaurant restaurant)
