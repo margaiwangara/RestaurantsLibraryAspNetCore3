@@ -23,7 +23,7 @@ namespace AspNetCoreMVCMovie.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
                     MenuId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
@@ -42,11 +42,11 @@ namespace AspNetCoreMVCMovie.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 100, nullable: false),
+                    Address = table.Column<string>(maxLength: 100, nullable: false),
                     OffersTakeout = table.Column<bool>(nullable: false),
                     DateAdded = table.Column<DateTimeOffset>(nullable: false),
-                    MenuId = table.Column<Guid>(nullable: true)
+                    MenuId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,7 @@ namespace AspNetCoreMVCMovie.Migrations
                         column: x => x.MenuId,
                         principalTable: "Menu",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -64,8 +64,8 @@ namespace AspNetCoreMVCMovie.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 50, nullable: false),
+                    Description = table.Column<string>(maxLength: 100, nullable: true),
                     CategoryId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>

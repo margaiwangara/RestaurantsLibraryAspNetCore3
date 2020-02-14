@@ -8,8 +8,11 @@ namespace AspNetCoreMVCMovie.Entities
     [Key]
     public Guid Id { get; set; }
 
-    public string Name {get; set; }
+    [Required]
+    [MaxLength(50)]
+    public string Name { get; set; } // tea, coffee etc.
 
-    public string Description {get; set; }
+    [MaxLength(100)]
+    public string Description { get; set; }
   }
 }

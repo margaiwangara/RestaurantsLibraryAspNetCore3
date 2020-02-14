@@ -26,7 +26,9 @@ namespace AspNetCoreMVCMovie.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -45,10 +47,13 @@ namespace AspNetCoreMVCMovie.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(100);
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(50);
 
                     b.HasKey("Id");
 
@@ -75,16 +80,20 @@ namespace AspNetCoreMVCMovie.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Address")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(100);
 
                     b.Property<DateTimeOffset>("DateAdded")
                         .HasColumnType("TEXT");
 
-                    b.Property<Guid?>("MenuId")
+                    b.Property<Guid>("MenuId")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(100);
 
                     b.Property<bool>("OffersTakeout")
                         .HasColumnType("INTEGER");
@@ -114,7 +123,9 @@ namespace AspNetCoreMVCMovie.Migrations
                 {
                     b.HasOne("AspNetCoreMVCMovie.Entities.Menu", "Menu")
                         .WithMany()
-                        .HasForeignKey("MenuId");
+                        .HasForeignKey("MenuId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

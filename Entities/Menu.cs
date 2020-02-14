@@ -9,7 +9,7 @@ namespace AspNetCoreMVCMovie.Entities
     [Key]
     public Guid Id { get; set; }
 
-    public IEnumerable<Category> Category { get; set; }
+    public IEnumerable<Category> Category { get; set; } // drinks, desert etc.
         = new List<Category>();
   }
 }
