@@ -6,6 +6,8 @@ using AspNetCoreMVCMovie.DbContexts;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using AspNetCoreMVCMovie.Services;
+using AutoMapper;
+using System;
 
 namespace AspNetCoreMVCMovie
 {
@@ -22,6 +24,9 @@ namespace AspNetCoreMVCMovie
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // services.AddAutoMapper(typeof(Startup));
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IRestaurantLibraryRepository, RestaurantLibraryRepository>();
             

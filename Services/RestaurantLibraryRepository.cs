@@ -32,7 +32,12 @@ namespace AspNetCoreMVCMovie.Services
 
     public void AddRestaurant(Restaurant restaurant)
     {
+      if(restaurant == null)
+      {
+        throw new ArgumentNullException(nameof(restaurant));
+      }
 
+      _context.Restaurants.Add(restaurant);
     }
 
     public void UpdateRestaurant(Guid restaurantId, Restaurant restaurant)
@@ -45,6 +50,16 @@ namespace AspNetCoreMVCMovie.Services
 
     }
 
+    public bool RestaurantExists(Guid restaurantId)
+    {
+      if(restaurantId == Guid.Empty)
+      {
+        throw new ArgumentNullException(nameof(restaurantId));
+      }
+
+      return _context.Restaurants.Any(r => r.Id == restaurantId);
+
+    }
     public bool Save()
     {
       return (_context.SaveChanges() >= 0);

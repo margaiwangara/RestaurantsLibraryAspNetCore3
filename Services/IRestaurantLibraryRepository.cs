@@ -13,6 +13,7 @@ namespace AspNetCoreMVCMovie.Services
     void UpdateRestaurant(Guid restaurantId, Restaurant restaurant);
     void DeleteRestaurant(Guid restaurantId);
 
+    bool RestaurantExists(Guid restaurantId);
     bool Save();
   }
 }
