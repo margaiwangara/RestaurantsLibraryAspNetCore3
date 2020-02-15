@@ -3,14 +3,16 @@ using System;
 using AspNetCoreMVCMovie.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AspNetCoreMVCMovie.Migrations
 {
     [DbContext(typeof(RestaurantLibraryContext))]
-    partial class RestaurantLibraryContextModelSnapshot : ModelSnapshot
+    [Migration("20200215104347_AddedMenuTableWithRelationshipToRestaurantTable")]
+    partial class AddedMenuTableWithRelationshipToRestaurantTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

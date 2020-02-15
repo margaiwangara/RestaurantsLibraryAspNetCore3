@@ -43,13 +43,19 @@ namespace AspNetCoreMVCMovie.Services
       _context.Restaurants.Add(restaurant);
     }
 
-    public void UpdateRestaurant(Guid restaurantId, Restaurant restaurant)
+    public void UpdateRestaurant(Restaurant restaurant)
     {
-
+      // no implementation
     }
 
-    public void DeleteRestaurant(Guid restaurantId)
+    public void DeleteRestaurant(Restaurant restaurant)
     {
+      if(restaurant == null)
+      {
+        throw new ArgumentNullException(nameof(restaurant));
+      }
+
+      _context.Restaurants.Remove(restaurant);
 
     }
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AspNetCoreMVCMovie.Entities
@@ -20,10 +21,9 @@ namespace AspNetCoreMVCMovie.Entities
     
     public DateTime DateAdded { get; set; }
 
-    // [ForeignKey("MenuId")]
-    // public Menu Menu { get; set; }
+    public ICollection<Menu> Menus { get; set; }
+       = new List<Menu>();  
 
-    // public Guid MenuId { get; set; }
 
   }
 }

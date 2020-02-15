@@ -8,8 +8,9 @@ using AspNetCoreMVCMovie.Entities;
 
 namespace AspNetCoreMVCMovie.Controllers.Api
 {
+  [ApiController]
   [Route("api/restaurants")]
-  public class RestaurantsController: Controller
+  public class RestaurantsController : ControllerBase
   {
 
     private readonly IRestaurantLibraryRepository _restaurantLibraryRepository;
@@ -57,6 +58,24 @@ namespace AspNetCoreMVCMovie.Controllers.Api
 
         return CreatedAtRoute("GetRestaurant", 
               new { restaurantId = restaurantToReturn.Id}, restaurantToReturn);  
+    }
+
+    [HttpDelete("{restaurantId}")]
+    public ActionResult DeleteRestaurant(Guid restaurantId)
+    {
+      var restaurantFromRepo = _restaurantLibraryRepository.GetRestaurant(restaurantId);
+
+      // if not exists
+      if(restaurantFromRepo == null)
+      {
+        return NotFound();
+      }
+
+      // else delete
+      _restaurantLibraryRepository.DeleteRestaurant(restaurantFromRepo);
+      _restaurantLibraryRepository.Save();
+
+      return NoContent();
     }
   }
 }

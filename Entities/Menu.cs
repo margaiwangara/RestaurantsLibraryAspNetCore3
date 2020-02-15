@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AspNetCoreMVCMovie.Entities
 {
@@ -9,7 +10,14 @@ namespace AspNetCoreMVCMovie.Entities
     [Key]
     public Guid Id { get; set; }
 
-    public IEnumerable<Category> Category { get; set; } // drinks, desert etc.
-        = new List<Category>();
+    [Required]
+    [MaxLength(50)]
+    public string Name { get; set; }
+    [ForeignKey("RestaurantId")]
+    public Restaurant Restaurant {get; set; }
+    public Guid RestaurantId { get; set; }
+
+    // public IEnumerable<MenuItem> Category { get; set; } // drinks, desert etc.
+    //     = new List<MenuItem>();
   }
 }
