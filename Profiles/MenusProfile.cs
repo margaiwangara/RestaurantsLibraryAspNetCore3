@@ -4,12 +4,10 @@ using AutoMapper;
 
 namespace AspNetCoreMVCMovie.Profiles
 {
-  public class RestaurantsProfile : Profile
+  public class MenusProfile : Profile
   {
-    public RestaurantsProfile()
+    public MenusProfile()
     {
-      CreateMap<Restaurant, RestaurantDto>();
-      CreateMap<RestaurantForCreationDto, Restaurant>();
       CreateMap<Menu, MenuDto>();
     }
   }

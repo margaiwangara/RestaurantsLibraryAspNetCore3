@@ -15,6 +15,18 @@ namespace AspNetCoreMVCMovie.Services
       _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
+    public IEnumerable<Menu> GetMenus(Guid restaurantId)
+    {
+      if(restaurantId == Guid.Empty)
+      {
+        throw new ArgumentNullException(nameof(restaurantId));
+      }
+
+      return _context.Menus
+                      .Where(m => m.RestaurantId == restaurantId)
+                      .OrderBy(m => m.Name).ToList();
+
+    }
     public IEnumerable<Restaurant> GetRestaurants()
     {
       return _context.Restaurants.ToList<Restaurant>();

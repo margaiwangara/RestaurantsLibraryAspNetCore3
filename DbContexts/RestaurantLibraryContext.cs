@@ -9,6 +9,7 @@ namespace AspNetCoreMVCMovie.DbContexts
     public RestaurantLibraryContext(DbContextOptions<RestaurantLibraryContext> options): base(options){}
 
     public DbSet<Restaurant> Restaurants { get; set; }
+    public DbSet<Menu> Menus { get; set; }
 
   }
 }
