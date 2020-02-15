@@ -10,7 +10,7 @@ namespace AspNetCoreMVCMovie.Services
     IEnumerable<Restaurant> GetRestaurants();
     Restaurant GetRestaurant(Guid restaurantId);
     void AddRestaurant(Restaurant restaurant);
-    void UpdateRestaurant(Guid restaurantId, Restaurant restaurant);
+    void UpdateRestaurant(Restaurant restaurant);
     void DeleteRestaurant(Restaurant restaurant);
 
     bool RestaurantExists(Guid restaurantId);

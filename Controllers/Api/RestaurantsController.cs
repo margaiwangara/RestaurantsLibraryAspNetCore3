@@ -60,6 +60,7 @@ namespace AspNetCoreMVCMovie.Controllers.Api
               new { restaurantId = restaurantToReturn.Id}, restaurantToReturn);  
     }
 
+  
     [HttpDelete("{restaurantId}")]
     public ActionResult DeleteRestaurant(Guid restaurantId)
     {

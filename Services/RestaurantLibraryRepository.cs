@@ -45,7 +45,7 @@ namespace AspNetCoreMVCMovie.Services
 
     public void UpdateRestaurant(Restaurant restaurant)
     {
-      // no implementation
+      // no logic
     }
 
     public void DeleteRestaurant(Restaurant restaurant)

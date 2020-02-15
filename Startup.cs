@@ -24,7 +24,11 @@ namespace AspNetCoreMVCMovie
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddControllers(c => {
+                c.ReturnHttpNotAcceptable = true;
+            })
+            .AddXmlDataContractSerializerFormatters();// enables returning xml data
+            
             // services.AddAutoMapper(typeof(Startup));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
