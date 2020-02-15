@@ -9,12 +9,12 @@ namespace AspNetCoreMVCMovie.Controllers.Api
 {
   [ApiController]
   [Route("api/restaurants/{restaurantId}/menus")]
-  public class MenuController : ControllerBase
+  public class MenusController : ControllerBase
   {
     private readonly IRestaurantLibraryRepository _restaurantLibraryRepository;
     private readonly IMapper _mapper;
 
-    public MenuController(IRestaurantLibraryRepository restaurantLibraryRespository, 
+    public MenusController(IRestaurantLibraryRepository restaurantLibraryRespository, 
           IMapper mapper)
     {
       _restaurantLibraryRepository = restaurantLibraryRespository ?? 

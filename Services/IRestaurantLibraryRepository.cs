@@ -6,7 +6,13 @@ namespace AspNetCoreMVCMovie.Services
 {
   public interface IRestaurantLibraryRepository
   {
+    // Menu
     IEnumerable<Menu> GetMenus(Guid restaurantId);
+    // Menu GetMenu(Guid restaurantId, Guid menuId);
+    // void AddMenu(Menu menu);
+    // void UpdateMenu(Menu menu);
+    // void DeleteMenu(Menu menu);
+    // Restaurant
     IEnumerable<Restaurant> GetRestaurants();
     Restaurant GetRestaurant(Guid restaurantId);
     void AddRestaurant(Restaurant restaurant);
